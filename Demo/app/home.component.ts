@@ -41,8 +41,11 @@ export class HomeComponent implements OnInit {
 
         console.log("hello", this.userObj);
 
-        this._loginService.loginuser(this.userObj)
-        .subscribe(res => console.log("response recieved : ",res));
+      //  this._loginService.loginuser(this.userObj)
+       // .subscribe(res => console.log("response recieved : ",res));
+
+       this.router.navigate(['UserBody']);
+
     }
 
 }

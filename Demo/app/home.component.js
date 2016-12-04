@@ -52,8 +52,9 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
                 };
                 HomeComponent.prototype.submit = function () {
                     console.log("hello", this.userObj);
-                    this._loginService.loginuser(this.userObj)
-                        .subscribe(function (res) { return console.log("response recieved : ", res); });
+                    //  this._loginService.loginuser(this.userObj)
+                    // .subscribe(res => console.log("response recieved : ",res));
+                    this.router.navigate(['UserBody']);
                 };
                 HomeComponent = __decorate([
                     core_1.Component({

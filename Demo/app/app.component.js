@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-System.register(['angular2/core', 'angular2/router', './home.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './user-body.component', './user-header.component', './buy.component', './sell.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './home.component'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, home_component_1;
+    var core_1, router_1, user_body_component_1, user_header_component_1, buy_component_1, sell_component_1;
     var AppComponent;
     return {
         setters:[
@@ -21,8 +21,17 @@ System.register(['angular2/core', 'angular2/router', './home.component'], functi
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (home_component_1_1) {
-                home_component_1 = home_component_1_1;
+            function (user_body_component_1_1) {
+                user_body_component_1 = user_body_component_1_1;
+            },
+            function (user_header_component_1_1) {
+                user_header_component_1 = user_header_component_1_1;
+            },
+            function (buy_component_1_1) {
+                buy_component_1 = buy_component_1_1;
+            },
+            function (sell_component_1_1) {
+                sell_component_1 = sell_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -30,14 +39,15 @@ System.register(['angular2/core', 'angular2/router', './home.component'], functi
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([
-                        {
-                            path: "/home", name: "Home", component: home_component_1.HomeComponent, useAsDefault: true,
-                        }
+                        // {path: "/home", name: 'Home', component: HomeComponent, useAsDefault: true},
+                        // {path: "/user-body", name: 'UserBody', component: UserBodyComponent, useAsDefault: true},
+                        { path: "/buy", name: 'Buy', component: buy_component_1.BuyComponent, useAsDefault: true },
+                        { path: "/sell", name: 'Sell', component: sell_component_1.SellComponent }
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <h1>Welcome to the Marketplace hello</h1>\n        <div class=\"container\">\n        <router-outlet></router-outlet>\n        </div>\n    ",
-                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet]
+                        template: "\n        <user-body></user-body>\n\n        <div class=\"container\">\n        <router-outlet></router-outlet>        \n        </div>\n    ",
+                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, user_header_component_1.UserHeaderComponent, user_body_component_1.UserBodyComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
