@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/0dd8d5d50a.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <title>MarketHub &trade; - Let's get you settled in!</title>
+    <link href="css/bootstrap.css" rel="stylesheet">    
+    <script src="js/smoothscroll.js"></script>
+    <link href="css/additional.css" rel="stylesheet">
+
+</head>
+
+    <!-- Large modal -->
+    <button class="btn btn-primary btn-md" href="#signup" data-toggle="modal" data-target=".bs-modal-md">Sign In/Register</button>
+
+    
+    <!-- Modal -->
+    <div class="modal fade bs-modal-md" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mymdallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-5">
+                        <img src="img/husky.png" width="50" height="50"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="bs-example bs-example-tabs">
+                        <ul id="myTab" class="nav nav-tabs">
+                          <li class="active" id="tabSignin"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                          <li class="" id="tabRegister"><a href="#signup" data-toggle="tab">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="row" style="margin-top:10px">
+                        <div class="col-lg-10 col-lg-offset-1">
+                <div id="myTabContent" class="tab-content">
+                    
+                            <div class="tab-pane fade active in" id="signin">
+                                <form class="form-horizontal">
+                                <fieldset>
+                                <div class="control-group">
+                                  <label class="control-label" for="userid"><i class="fa fa-user fa-lg" aria-hidden="true"></i></label>
+                                  <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="johndoe@email.com" class="input-medium" required="">
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="passwordinput"><i class="fa fa-key fa-lg" aria-hidden="true"></i></label>
+                                    <input style="margin-left:10px;" required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                </div>
+
+                                <!-- Multiple Checkboxes (inline) -->
+                                <div style="border:none;margin-top: 20px;margin-left: 30px;">
+                                    <label class="control-label" for="rememberme"></label>
+                                    <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">Remember me
+                                </div>
+
+                                <!-- Button -->
+                                <div class="control-group" style="margin-top:0px">
+                                  <label class="control-label" for="signin"></label>
+                                  <div class="controls" style="margin-left: 30px;">
+                                    <button id="signIn" name="signIn" class="btn btn-md">Sign In</button>
+                                  </div>
+                                </div>
+                                </fieldset>
+                                </form>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="signup">
+                                <form class="form-horizontal">
+                                <div class="col-xs-3" style="margin-left:-15px;">    
+                                    <ul class="nav nav-tabs tabs-left">
+                                    <li class="active"><a href="#home" data-toggle="tab">Basic</a></li>
+                                    <li class=""><a href="#profile" data-toggle="tab">Personal</a></li>
+                                    <li class=""><a href="#messages" data-toggle="tab">Profile</a></li>
+                                  </ul>
+                                </div>
+
+                                <div class="col-xs-9">
+                                  <!-- Tab panes -->
+                                  <div class="tab-content">
+                                    <div class="tab-pane active" id="home">
+                                          
+                                        <fieldset>
+                                            
+                                            <div class="control-group">
+                                              <label class="control-label" for="userid"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></label>
+                                              <input style="margin-left:10px;" required="" id="userid" name="userid" type="text" class="form-control" placeholder="johndoe@email.com" class="input-medium" required="">
+                                            </div>
+                                            
+                                            <div class="control-group">
+                                              <label class="control-label" for="name"><i class="fa fa-user fa-lg" aria-hidden="true"></i></label>
+                                              <input required="" id="name" name="name" type="text" class="form-control" placeholder="John Doe" class="input-medium" required="">
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label" for="passwordinput"><i class="fa fa-key fa-lg" aria-hidden="true"></i></label>
+                                                <input style="margin-left:10px;" required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                            </div>
+                                            
+                                        </fieldset>
+                                        
+                                    </div>
+                                    
+                                    <div class="tab-pane" id="profile">
+                                        
+                                        <fieldset>
+                                            
+                                            <div class="control-group">
+                                              <label class="control-label" for="userid"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></label>
+                                              <input style="margin-left:10px;" required="" id="userid" name="userid" type="text" class="form-control" placeholder="johndoe@email.com" class="input-medium" required="">
+                                            </div>
+                                            
+                                            <div class="control-group">
+                                              <label class="control-label" for="name"><i class="fa fa-user fa-lg" aria-hidden="true"></i></label>
+                                              <input required="" id="name" name="name" type="text" class="form-control" placeholder="John Doe" class="input-medium" required="">
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label" for="passwordinput"><i class="fa fa-key fa-lg" aria-hidden="true"></i></label>
+                                                <input style="margin-left:10px;" required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                                            </div>
+                                            
+                                        </fieldset>
+                                        
+                                    </div>
+                                    <div class="tab-pane" id="messages">Messages Tab.</div>
+                                    <div class="tab-pane" id="settings">Settings Tab.</div>
+                                  </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                </form>
+                            </div>
+
+                            <!--    
+                                <form class="form-horizontal">
+                                <fieldset>
+                                
+                                <div class="control-group">
+                                  <label class="control-label" for="Email">Email:</label>
+                                  <div class="controls">
+                                    <input id="Email" name="Email" class="form-control" type="text" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
+                                  </div>
+                                </div>
+
+                                
+                                <div class="control-group">
+                                  <label class="control-label" for="userid">Alias:</label>
+                                  <div class="controls">
+                                    <input id="userid" name="userid" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                                  </div>
+                                </div>
+
+                               
+                                <div class="control-group">
+                                  <label class="control-label" for="password">Password:</label>
+                                  <div class="controls">
+                                    <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                    <em>1-8 Characters</em>
+                                  </div>
+                                </div>
+
+                                
+                                <div class="control-group">
+                                  <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                  <div class="controls">
+                                    <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                  </div>
+                                </div>
+
+                                
+                                <br>
+                                <div class="control-group">
+                                  <label class="control-label" for="humancheck">Humanity Check:</label>
+                                  <div class="controls">
+                                    <label class="radio inline" for="humancheck-0">
+                                      <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot</label>
+                                    <label class="radio inline" for="humancheck-1">
+                                      <input type="radio" name="humancheck" id="humancheck-1" value="human">I'm Human</label>
+                                  </div>
+                                </div>
+
+                                
+                                <div class="control-group">
+                                  <label class="control-label" for="confirmsignup"></label>
+                                  <div class="controls">
+                                    <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                  </div>
+                                </div>
+                                </fieldset>
+                                </form>
+                    
+                    -->
+                    
+                            </div>
+                            </div>
+                    </div>
+                        </div>
+          </div>
+          <div class="modal-footer">
+            <center>
+                <p class="text-center"><h4>&copy; MarketHub&trade;, 2016</h4></p>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
