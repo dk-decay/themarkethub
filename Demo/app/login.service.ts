@@ -19,6 +19,6 @@ export class LoginService {
         var body = JSON.stringify(post);
         console.log("post parsing", body);
         return this._http.post("/login", body, options)
-            .map(res => res.json);
+            .map(res => res.json());
     }
 }

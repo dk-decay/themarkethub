@@ -36,7 +36,7 @@ System.register(['angular2/http', 'angular2/core', 'rxjs/add/operator/map'], fun
                     var body = JSON.stringify(post);
                     console.log("post parsing", body);
                     return this._http.post("/login", body, options)
-                        .map(function (res) { return res.json; });
+                        .map(function (res) { return res.json(); });
                 };
                 LoginService = __decorate([
                     core_1.Injectable(), 

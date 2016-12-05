@@ -27,7 +27,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 UserBodyComponent = __decorate([
                     core_1.Component({
                         selector: 'user-body',
-                        template: "\n<h1>Welcome to the MarketHub</h1>   \n\n\n        <ul class=\"nav nav-tabs\">\n            <li><a [routerLink]=\"['Buy']\">Buy</a></li>\n            <li><a [routerLink]=\"['Sell']\">Sell</a></li>\n        </ul>",
+                        template: "\n<h1>Welcome to the MarketHub</h1>   \n\n\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a [routerLink]=\"['Buy']\">Buy</a></li>\n            <li class=\"active\"><a [routerLink]=\"['Sell']\">Sell</a></li>\n        </ul>",
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])

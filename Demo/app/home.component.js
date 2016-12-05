@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, common_1, user_1, http_1, login_service_1, http_2;
+    var core_1, router_1, common_1, user_1, http_1, login_service_1;
     var HomeComponent;
     return {
         setters:[
@@ -28,7 +28,6 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
             },
             function (http_1_1) {
                 http_1 = http_1_1;
-                http_2 = http_1_1;
             },
             function (login_service_1_1) {
                 login_service_1 = login_service_1_1;
@@ -41,8 +40,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
                     this.router = router;
                     this._routeParams = _routeParams;
                     this._loginService = _loginService;
-                    this.headers = new http_2.Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
-                    this.options = new http_2.RequestOptions({ headers: this.headers });
+                    this.authenticatedUser = {};
                     this.signUpForm = fb.group({
                         email: ['', common_1.Validators.compose([common_1.Validators.required])],
                         password: ['', common_1.Validators.compose([common_1.Validators.required])]
@@ -51,9 +49,14 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
                 HomeComponent.prototype.ngOnInit = function () {
                 };
                 HomeComponent.prototype.submit = function () {
-                    console.log("hello", this.userObj);
-                    //  this._loginService.loginuser(this.userObj)
-                    // .subscribe(res => console.log("response recieved : ",res));
+                    var _this = this;
+                    console.log("user object:", this.userObj);
+                    this._loginService.loginuser(this.userObj)
+                        .subscribe(function (res) {
+                        _this.authenticatedUser = res;
+                    }, function (err) { return console.log('error : ', err); });
+                    console.log('Printing authenticatedUser ');
+                    console.log(this.authenticatedUser);
                     this.router.navigate(['UserBody']);
                 };
                 HomeComponent = __decorate([

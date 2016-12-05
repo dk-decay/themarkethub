@@ -16,8 +16,8 @@ import 'rxjs/add/operator/map';
 })
 export class HomeComponent implements OnInit {
 
-    private headers = new Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
-  private options = new RequestOptions({ headers: this.headers });
+   
+ authenticatedUser = {};
 
     signUpForm: ControlGroup;
     constructor(fb: FormBuilder, private userObj: User,
@@ -39,12 +39,19 @@ export class HomeComponent implements OnInit {
 
     submit() {
 
-        console.log("hello", this.userObj);
 
-      //  this._loginService.loginuser(this.userObj)
-       // .subscribe(res => console.log("response recieved : ",res));
+        console.log("user object:", this.userObj);
+     
+        this._loginService.loginuser(this.userObj)
+        .subscribe(res => {
+        
+            this.authenticatedUser = res;
+        },
+        err => console.log('error : ',err));
+        console.log('Printing authenticatedUser ');
+        console.log(this.authenticatedUser);
 
-       this.router.navigate(['UserBody']);
+        this.router.navigate(['UserBody']);
 
     }
 
