@@ -57,33 +57,6 @@ db.once('open', function() {
       
     }) 
 
-        // UserModel.findOne({email: req.body.email},
-        // function(err, fetchedUser) {
-        //     console.log('Printing result');
-        //     console.log(fetchedUser.length);
-        //     if(err) {
-        //         console.log('Error occurred ', err);
-        //          res.status(551).json({error : 'NOK-1'});
-        //     }
-        //     else if(!fetchedUser) {
-        //             console.log('User not found ', fetchedUser);
-        //              res.status(550).json({error : 'NOK'});
-        //         }
-        //         else {
-        //         console.log('returning : ',fetchedUser);
-        //         res.status(200).json(fetchedUser);
-        //         }   
-                
-        // }
-        
-        // );
-
-
-        // var obj = new User(req.body);
-        // obj.save(function(err, obj) {
-        //     if (err) return console.error(err);
-        //     res.status(200).json(obj);
-        // });
     });
 
 
@@ -94,6 +67,18 @@ app.get('/node_modules*', function(req, res, next) {
 
 });
 app.get('/app*', function(req, res, next) {
+    res.sendFile(path.join(__dirname + req.url));
+
+});
+
+app.get('/public*', function(req, res, next) {
+    res.sendFile(path.join(__dirname + req.url));
+
+});
+
+
+
+app.get('/fonts*', function(req, res, next) {
     res.sendFile(path.join(__dirname + req.url));
 
 });

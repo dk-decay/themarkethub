@@ -34,6 +34,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
             },
             function (_1) {}],
         execute: function() {
+            //import {Ng2PageScrollModule} from 'ng2-page-scroll';
             HomeComponent = (function () {
                 function HomeComponent(fb, userObj, router, _routeParams, _loginService) {
                     this.userObj = userObj;
@@ -47,23 +48,27 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
                     });
                 }
                 HomeComponent.prototype.ngOnInit = function () {
+                    this.loggedIn = this.route;
                 };
-                HomeComponent.prototype.submit = function () {
-                    var _this = this;
-                    console.log("user object:", this.userObj);
-                    this._loginService.loginuser(this.userObj)
-                        .subscribe(function (res) {
-                        _this.authenticatedUser = res;
-                    }, function (err) { return console.log('error : ', err); });
-                    console.log('Printing authenticatedUser ');
-                    console.log(this.authenticatedUser);
-                    this.router.navigate(['UserBody']);
+                HomeComponent.prototype.signIn = function () {
+                    // this.userObj = {email : 'soham@gmail.com', password : 'ads'};
+                    // console.log("user object:", this.userObj);
+                    // this._loginService.loginuser(this.userObj)
+                    // .subscribe(res => {
+                    //     this.authenticatedUser = res;
+                    // },
+                    // err => console.log('error : ',err));
+                    // console.log('Printing authenticatedUser ');
+                    // console.log(this.authenticatedUser);
+                    console.log('Checking value');
+                    this.router.navigate(['UserHome']);
                 };
                 HomeComponent = __decorate([
                     core_1.Component({
                         selector: 'home',
                         templateUrl: 'app/home.component.html',
-                        providers: [user_1.User, http_1.HTTP_PROVIDERS, login_service_1.LoginService]
+                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css', 'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                        providers: [user_1.User, http_1.HTTP_PROVIDERS, login_service_1.LoginService],
                     }), 
                     __metadata('design:paramtypes', [common_1.FormBuilder, user_1.User, router_1.Router, router_1.RouteParams, login_service_1.LoginService])
                 ], HomeComponent);
