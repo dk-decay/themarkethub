@@ -1,4 +1,4 @@
-System.register(['angular2/core', './user-search.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './user-search.component', './footer.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', './user-search.component'], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_search_component_1;
-    var SellComponent;
+    var core_1, user_search_component_1, footer_component_1;
+    var DashboardComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,23 +19,28 @@ System.register(['angular2/core', './user-search.component'], function(exports_1
             },
             function (user_search_component_1_1) {
                 user_search_component_1 = user_search_component_1_1;
+            },
+            function (footer_component_1_1) {
+                footer_component_1 = footer_component_1_1;
             }],
         execute: function() {
-            SellComponent = (function () {
-                function SellComponent() {
+            DashboardComponent = (function () {
+                function DashboardComponent() {
                 }
-                SellComponent = __decorate([
+                DashboardComponent = __decorate([
                     core_1.Component({
-                        selector: 'sell',
-                        template: "\n     <user-search></user-search>\n        <h5> Sell things at a higher value </h5>\n    ",
-                        directives: [user_search_component_1.UserSearchComponent]
+                        selector: 'dashboard',
+                        templateUrl: 'app/dashboard.component.html',
+                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                        directives: [user_search_component_1.UserSearchComponent, footer_component_1.FooterComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], SellComponent);
-                return SellComponent;
+                ], DashboardComponent);
+                return DashboardComponent;
             }());
-            exports_1("SellComponent", SellComponent);
+            exports_1("DashboardComponent", DashboardComponent);
         }
     }
 });
-//# sourceMappingURL=sell.component.js.map
+//# sourceMappingURL=dashboard.component.js.map

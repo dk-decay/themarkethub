@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './user-search.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
+    var core_1, router_1, user_search_component_1;
     var UserHomeComponent;
     return {
         setters:[
@@ -19,16 +19,31 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (user_search_component_1_1) {
+                user_search_component_1 = user_search_component_1_1;
             }],
         execute: function() {
             UserHomeComponent = (function () {
                 function UserHomeComponent() {
                 }
+                UserHomeComponent.prototype.ngOnInit = function () {
+                    if ($("body").hasClass('modal-open')) {
+                        $("body.modal-open").toggleClass("modal-open");
+                        $("div.modal-backdrop").toggleClass("modal-backdrop");
+                        $("div.fade").toggleClass("fade");
+                        $("div.in").toggleClass("in");
+                    }
+                    //  $("div").last().remove();
+                    //Class("modal-backdrop fade in").addClass("modal-backdrop fade");
+                };
                 UserHomeComponent = __decorate([
                     core_1.Component({
                         selector: 'user-home',
-                        template: "\n    \n    <a [routerLink]=\"['Buy']\">Buy</a>\n    <a [routerLink]=\"['Sell']\">Sell</a>\n    \n    \n    ",
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        templateUrl: 'app/userhome.component.html',
+                        directives: [router_1.ROUTER_DIRECTIVES, user_search_component_1.UserSearchComponent],
+                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], UserHomeComponent);

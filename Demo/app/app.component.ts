@@ -1,6 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-import { Component } from 'angular2/core';
+import { Component , Input } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteConfig, RouterOutlet, ROUTER_PROVIDERS , RouterLink, Router, RouteParams} from 'angular2/router';
 import { HomeComponent } from './home.component';
 import { UserBodyComponent } from './user-body.component';
@@ -8,53 +8,51 @@ import { UserHeaderComponent } from './user-header.component';
 import { BuyComponent } from './buy.component';
 import { SellComponent } from './sell.component';
 import { UserHomeComponent } from './userhome.component';
+import { DashboardComponent } from './dashboard.component';
+import { RentComponent } from './rent.component';
+import{ UserSearchComponent } from './user-search.component';
+import { FooterComponent } from './footer.component';
+import {StaticHomeComponent} from './static-home.component'
 
 
 @RouteConfig([
 
-
-    // {path: "/home", name: 'Home', component: HomeComponent, useAsDefault: true}
-    // {path: "/home", name: 'Home', component: HomeComponent, useAsDefault: true},
-    // {path: "/user-body", name: 'UserBody', component: UserBodyComponent, useAsDefault: true},
-    //{path: "/buy", name: 'Buy', component: BuyComponent, useAsDefault: true},
-
-    //{ path: "/home", name: 'Home', component: HomeComponent },
     { path: "/userhome", name: 'UserHome', component: UserHomeComponent },
-    { path: "/buy", name: 'Buy', component: BuyComponent },
-    { path: "/sell", name: 'Sell', component: SellComponent }
+    { path: "/userhome/buy", name: 'Buy', component: BuyComponent },
+    { path: "/userhome/sell", name: 'Sell', component: SellComponent },
+    { path: "/userhome/dashboard", name: 'Dashboard', component: DashboardComponent},
+    { path: "/userhome/rent", name: 'Rent', component : RentComponent},
+    {path : "/marketplace", name : 'Marketplace', component : StaticHomeComponent}
+
+
 ])
 @Component({
     selector: 'my-app',
-    // template: `
-    //      <div *ngIf="!loggedIn">
-
-
-    //      </div>
-    //     <user-nav-head></user-nav-head>
-
-    //     <user-home *ngIf="loggedIn"></user-home>
-    //     <div class="container">
-    //     <router-outlet></router-outlet>        
-    //     </div>
-
-
-
-    // `,
     templateUrl: 'app/app.component.html',
-    directives: [ROUTER_DIRECTIVES, RouterOutlet, UserHomeComponent],
+
+    styleUrls : ['app/home/css/bootstrap.min.css','app/home/css/bootstrap.css',
+                    'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+    directives: [ROUTER_DIRECTIVES, RouterOutlet, UserHomeComponent, UserSearchComponent, StaticHomeComponent, FooterComponent],
     providers : [ROUTER_PROVIDERS]
 })
+
+
 export class AppComponent {
+    
     loggedIn = false;
+
     constructor(private router: Router) {
     }
 
 
-    onSubmit() {
-
+    onStatus($event) {
+        console.log("catching event", $event);
+        
         this.loggedIn = true;
-        this.router.navigate(['Buy']);
-
+        this.router.navigate(['Dashboard']);
+       //this.router.navigateByUrl('/marketplace/userhome/dashboard', true);
 
     }
+
+    
 }

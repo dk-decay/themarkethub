@@ -1,4 +1,4 @@
-System.register(['angular2/core', './user-header.component', './user-body.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,35 +10,34 @@ System.register(['angular2/core', './user-header.component', './user-body.compon
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_header_component_1, user_body_component_1;
-    var UserHomeComponent;
+    var core_1, router_1;
+    var UserSearchComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (user_header_component_1_1) {
-                user_header_component_1 = user_header_component_1_1;
-            },
-            function (user_body_component_1_1) {
-                user_body_component_1 = user_body_component_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
-            UserHomeComponent = (function () {
-                function UserHomeComponent() {
+            UserSearchComponent = (function () {
+                function UserSearchComponent() {
                 }
-                UserHomeComponent = __decorate([
+                UserSearchComponent = __decorate([
                     core_1.Component({
-                        selector: 'user-home',
-                        template: "\n    \n        <user-header></user-header>\n        <user-body></user-body>\n    ",
-                        directives: [user_header_component_1.UserHeaderComponent, user_body_component_1.UserBodyComponent]
+                        selector: 'user-search',
+                        templateUrl: 'app/user-search.component.html',
+                        directives: [router_1.ROUTER_DIRECTIVES],
+                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
                     }), 
                     __metadata('design:paramtypes', [])
-                ], UserHomeComponent);
-                return UserHomeComponent;
+                ], UserSearchComponent);
+                return UserSearchComponent;
             }());
-            exports_1("UserHomeComponent", UserHomeComponent);
+            exports_1("UserSearchComponent", UserSearchComponent);
         }
     }
 });
-//# sourceMappingURL=user-home.component.js.map
+//# sourceMappingURL=user-search.component.js.map

@@ -11,7 +11,7 @@ System.register(['angular2/core', './user-search.component'], function(exports_1
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, user_search_component_1;
-    var SellComponent;
+    var RentComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,21 +21,21 @@ System.register(['angular2/core', './user-search.component'], function(exports_1
                 user_search_component_1 = user_search_component_1_1;
             }],
         execute: function() {
-            SellComponent = (function () {
-                function SellComponent() {
+            RentComponent = (function () {
+                function RentComponent() {
                 }
-                SellComponent = __decorate([
+                RentComponent = __decorate([
                     core_1.Component({
-                        selector: 'sell',
-                        template: "\n     <user-search></user-search>\n        <h5> Sell things at a higher value </h5>\n    ",
+                        selector: 'rent',
+                        template: "\n    <user-search></user-search>\n        <h5> Rent things from here </h5>\n    ",
                         directives: [user_search_component_1.UserSearchComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], SellComponent);
-                return SellComponent;
+                ], RentComponent);
+                return RentComponent;
             }());
-            exports_1("SellComponent", SellComponent);
+            exports_1("RentComponent", RentComponent);
         }
     }
 });
-//# sourceMappingURL=sell.component.js.map
+//# sourceMappingURL=rent.component.js.map

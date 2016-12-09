@@ -1,3 +1,205 @@
+#buy-bottom{
+  margin-top:10px;
+}
+
+#buy-content{
+  margin-bottom: 35px;
+}
+
+.shard {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	border-radius: 3px;
+	color: black;
+	background: white;
+}
+
+.shard .shard-height-indicator {
+	margin-top: 100%;
+}
+
+.shard .shard-content {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.shard .shard-image {
+	height: 60%;
+	position: relative;
+	overflow: hidden;
+}
+
+.shard .shard-image img {
+	width: 100%;
+	height: 100%;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	pointer-events: none;
+}
+
+.shard .shard-image .shard-image-headline {
+	position: absolute;
+	bottom: 16px;
+	left: 18px;
+	color: yellow;
+	font-size: 2em;
+}
+
+.shard .shard-body {
+	height: 30%;
+	padding: 18px;
+}
+
+.shard .shard-footer {
+	height: 10%;
+	padding: 18px;
+}
+
+.shard .shard-footer button, .shard .shard-footer a {
+	margin: 0 !important;
+	position: relative;
+	bottom: 25px;
+	width: auto;
+}
+
+.shard .shard-footer button:first-child, .shard .shard-footer a:first-child {
+	left: -15px;
+}
+
+.shard .header {
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	margin: 15px;
+  padding: 15px 0;
+	background-color: white;
+}
+
+.shard .header-danger {
+	background: linear-gradient(60deg, #b80000, #b80000);
+}
+
+.shard [class*="header-"] {
+	color: #FFFFFF;
+}
+
+.shard-signup .header {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: -40px;
+	padding: 20px 0;
+}
+
+.shard-signup .text-divider {
+	margin-top: 30px;
+	margin-bottom: 0px;
+	text-align: center;
+}
+
+.shard-signup .content {
+	padding: 0px 30px 0px 10px;
+}
+
+.shard-signup .checkbox {
+	margin-top: 20px;
+}
+
+.shard-signup .checkbox label {
+	margin-left: 17px;
+}
+
+.shard-signup .checkbox .checkbox-material {
+	padding-right: 12px;
+}
+
+.shard-signup .social-line {
+	text-align: center;
+}
+
+.shard-signup .social-line .btn {
+	color: white;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.shard-nav-tabs {
+	margin-top: 45px;
+}
+
+.shard-nav-tabs .header{
+	margin-top: -30px;
+}
+
+.shard-nav-tabs .nav-tabs {
+	background: transparent;
+}
+
+.shard-plain {
+	background: transparent;
+	box-shadow: none;
+}
+
+.shard-plain .header {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.shard-plain .content {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+.card-avatar img {
+    height: auto;
+    width: 100%;
+}
+
+.img-raised {
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+#index-top{
+  margin-top: 100px;
+}
+
+.navbar-custom {
+    background: rgba(184, 0, 0, 1);
+    font-weight: 700;
+    border: none;
+}
+
+#dashboard-id{
+  margin-top: 10%;
+}
+
+#dashboard-card{
+  margin-bottom: 20px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #b80000;
+}
+
+#index-image{
+  display: inline-block;
+}
+
+#intro-text-sub{
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+#intro-text{
+  font-size: 2.5em;
+}
+
 #index-footer{
   padding:0;
 }
@@ -7,6 +209,10 @@
     border-radius: 0px;
     border-bottom: 0px solid #ededf3;
     padding: 20px 0;
+}
+
+#index-cardboard{
+  box-shadow: 0 10px 2px 2px rgba(184, 0, 0, 0.8);
 }
 
 .pagination,
@@ -405,7 +611,6 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 1em;
-  text-transform: uppercase;
   font-weight: 500;
 }
 
@@ -657,7 +862,7 @@ h2.title {
 }
 .sidebar[data-color="red"] .nav li.active a,
 .off-canvas-sidebar[data-color="red"] .nav li.active a {
-  background-color: #f44336;
+  background-color: #b80000;
   box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
 }
 .sidebar[data-color="purple"] .nav li.active a,
@@ -727,7 +932,7 @@ h2.title {
   position: relative;
   padding: 12px 30px;
   margin: 10px 1px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0;
   will-change: box-shadow, transform;
@@ -1793,7 +1998,7 @@ output {
 .form-control,
 .form-group .form-control {
   border: 0;
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#b80000, #b80000), linear-gradient(#D2D2D2, #D2D2D2);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(100% - 1px);
@@ -1852,7 +2057,7 @@ output {
 }
 .form-group.is-focused .form-control {
   outline: none;
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#b80000, #b80000), linear-gradient(#D2D2D2, #D2D2D2);
   background-size: 100% 2px, 100% 1px;
   box-shadow: none;
   transition-duration: 0.3s;
@@ -1965,7 +2170,7 @@ output {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: black;
   font-weight: 400;
 }
 
@@ -2198,7 +2403,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .input-group .input-group-addon {
   border: 0;
   background: transparent;
-  padding: 6px 15px 0px;
+  padding: 15px 10px 0px;
 }
 
 .form-group input[type=file] {
@@ -2553,7 +2758,7 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
   cursor: pointer;
   padding-left: 35px;
   position: relative;
-  color: rgba(0,0,0, 0.26);
+  color: black;
 }
 .form-group.is-focused .radio label {
   color: rgba(0,0,0, 0.26);
@@ -2909,10 +3114,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .navbar {
-  border: 0;
-  border-radius: 3px;
-  border-bottom: 1px solid #ededf3;
-  padding: 10px 0;
+  padding: 20px;
 }
 .navbar .navbar-brand {
   position: relative;
@@ -2951,9 +3153,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   color: inherit;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-weight: 400;
-  font-size: 12px;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
   border-radius: 3px;
 }
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
@@ -3088,8 +3289,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   line-height: 1.42857;
 }
 .navbar, .navbar.navbar-default {
-  background-color: #FFFFFF;
-  color: #555555;
+  background-color: #d80000;
+  color: white;
 }
 .navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar .navbar-form input.form-control::-moz-placeholder, .navbar.navbar-default .navbar-form .form-group input.form-control::-moz-placeholder,
@@ -3686,7 +3887,6 @@ footer .btn {
   color: #999999;
 }
 .card img {
-  width: 100%;
   height: auto;
 }
 .card .category .material-icons {
@@ -3737,10 +3937,12 @@ footer .btn {
   background: linear-gradient(60deg, #ffa726, #fb8c00);
   box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
 }
+
 .card [data-background-color="red"] {
-  background: linear-gradient(60deg, #ef5350, #e53935);
-  box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+  background: linear-gradient(60deg, #b80000, #b80000);
+  box-shadow: 0 12px 20px -10px rgba(184, 0, 0, 0.38), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(184, 0, 0, 0.2);
 }
+
 .card [data-background-color] {
   color: #FFFFFF;
 }
@@ -3788,8 +3990,9 @@ footer .btn {
   margin-right: 0;
 }
 .card-plain .content {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
 }
 .card-plain .card-image {
   margin: 0;
@@ -3812,7 +4015,7 @@ footer .btn {
 .card-profile,
 .card-testimonial {
   margin-top: 30px;
-  text-align: center;
+  text-align: left;
 }
 .card-profile .btn-just-icon.btn-raised,
 .card-testimonial .btn-just-icon.btn-raised {

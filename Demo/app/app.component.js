@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-System.register(['angular2/core', 'angular2/router', './buy.component', './sell.component', './userhome.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './buy.component', './sell.component', './userhome.component', './dashboard.component', './rent.component', './user-search.component', './footer.component', './static-home.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './buy.component', './sell.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, buy_component_1, sell_component_1, userhome_component_1;
+    var core_1, router_1, buy_component_1, sell_component_1, userhome_component_1, dashboard_component_1, rent_component_1, user_search_component_1, footer_component_1, static_home_component_1;
     var AppComponent;
     return {
         setters:[
@@ -29,6 +29,21 @@ System.register(['angular2/core', 'angular2/router', './buy.component', './sell.
             },
             function (userhome_component_1_1) {
                 userhome_component_1 = userhome_component_1_1;
+            },
+            function (dashboard_component_1_1) {
+                dashboard_component_1 = dashboard_component_1_1;
+            },
+            function (rent_component_1_1) {
+                rent_component_1 = rent_component_1_1;
+            },
+            function (user_search_component_1_1) {
+                user_search_component_1 = user_search_component_1_1;
+            },
+            function (footer_component_1_1) {
+                footer_component_1 = footer_component_1_1;
+            },
+            function (static_home_component_1_1) {
+                static_home_component_1 = static_home_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -36,34 +51,27 @@ System.register(['angular2/core', 'angular2/router', './buy.component', './sell.
                     this.router = router;
                     this.loggedIn = false;
                 }
-                AppComponent.prototype.onSubmit = function () {
+                AppComponent.prototype.onStatus = function ($event) {
+                    console.log("catching event", $event);
                     this.loggedIn = true;
-                    this.router.navigate(['Buy']);
+                    this.router.navigate(['Dashboard']);
+                    //this.router.navigateByUrl('/marketplace/userhome/dashboard', true);
                 };
                 AppComponent = __decorate([
                     router_1.RouteConfig([
-                        // {path: "/home", name: 'Home', component: HomeComponent, useAsDefault: true}
-                        // {path: "/home", name: 'Home', component: HomeComponent, useAsDefault: true},
-                        // {path: "/user-body", name: 'UserBody', component: UserBodyComponent, useAsDefault: true},
-                        //{path: "/buy", name: 'Buy', component: BuyComponent, useAsDefault: true},
-                        //{ path: "/home", name: 'Home', component: HomeComponent },
                         { path: "/userhome", name: 'UserHome', component: userhome_component_1.UserHomeComponent },
-                        { path: "/buy", name: 'Buy', component: buy_component_1.BuyComponent },
-                        { path: "/sell", name: 'Sell', component: sell_component_1.SellComponent }
+                        { path: "/userhome/buy", name: 'Buy', component: buy_component_1.BuyComponent },
+                        { path: "/userhome/sell", name: 'Sell', component: sell_component_1.SellComponent },
+                        { path: "/userhome/dashboard", name: 'Dashboard', component: dashboard_component_1.DashboardComponent },
+                        { path: "/userhome/rent", name: 'Rent', component: rent_component_1.RentComponent },
+                        { path: "/marketplace", name: 'Marketplace', component: static_home_component_1.StaticHomeComponent }
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        // template: `
-                        //      <div *ngIf="!loggedIn">
-                        //      </div>
-                        //     <user-nav-head></user-nav-head>
-                        //     <user-home *ngIf="loggedIn"></user-home>
-                        //     <div class="container">
-                        //     <router-outlet></router-outlet>        
-                        //     </div>
-                        // `,
                         templateUrl: 'app/app.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, userhome_component_1.UserHomeComponent],
+                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, userhome_component_1.UserHomeComponent, user_search_component_1.UserSearchComponent, static_home_component_1.StaticHomeComponent, footer_component_1.FooterComponent],
                         providers: [router_1.ROUTER_PROVIDERS]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])

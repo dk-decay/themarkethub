@@ -83,7 +83,6 @@ app.get('/fonts*', function(req, res, next) {
 
 });
 
-
 app.get('/test', function(req, res) {
     console.log('getting data from server');
     res.json({ result: 200 });
@@ -95,6 +94,10 @@ app.get('/test', function(req, res) {
 
 app.get('/marketplace/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.get('/uploads*', function(req, res) {
+    res.sendFile(path.join(__dirname + req.url));
 });
 
 
