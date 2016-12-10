@@ -18,15 +18,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            User = (function () {
-                function User() {
-                }
-                User = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
-                ], User);
-                return User;
-            }());
+            User = class User {
+            };
+            User = __decorate([
+                core_1.Injectable(), 
+                __metadata('design:paramtypes', [])
+            ], User);
             exports_1("User", User);
         }
     }

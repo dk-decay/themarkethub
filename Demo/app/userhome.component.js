@@ -24,10 +24,9 @@ System.register(['angular2/core', 'angular2/router', './user-search.component'],
                 user_search_component_1 = user_search_component_1_1;
             }],
         execute: function() {
-            UserHomeComponent = (function () {
-                function UserHomeComponent() {
-                }
-                UserHomeComponent.prototype.ngOnInit = function () {
+            UserHomeComponent = class UserHomeComponent {
+                // }
+                ngOnInit() {
                     if ($("body").hasClass('modal-open')) {
                         $("body.modal-open").toggleClass("modal-open");
                         $("div.modal-backdrop").toggleClass("modal-backdrop");
@@ -36,19 +35,22 @@ System.register(['angular2/core', 'angular2/router', './user-search.component'],
                     }
                     //  $("div").last().remove();
                     //Class("modal-backdrop fade in").addClass("modal-backdrop fade");
-                };
-                UserHomeComponent = __decorate([
-                    core_1.Component({
-                        selector: 'user-home',
-                        templateUrl: 'app/userhome.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, user_search_component_1.UserSearchComponent],
-                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
-                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], UserHomeComponent);
-                return UserHomeComponent;
-            }());
+                }
+            };
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', Object)
+            ], UserHomeComponent.prototype, "username", void 0);
+            UserHomeComponent = __decorate([
+                core_1.Component({
+                    selector: 'user-home',
+                    templateUrl: 'app/userhome.component.html',
+                    directives: [router_1.ROUTER_DIRECTIVES, user_search_component_1.UserSearchComponent],
+                    styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                        'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                }), 
+                __metadata('design:paramtypes', [])
+            ], UserHomeComponent);
             exports_1("UserHomeComponent", UserHomeComponent);
         }
     }

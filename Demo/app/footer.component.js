@@ -18,20 +18,17 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            FooterComponent = (function () {
-                function FooterComponent() {
-                }
-                FooterComponent = __decorate([
-                    core_1.Component({
-                        selector: 'footer',
-                        templateUrl: 'app/footer.component.html',
-                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
-                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], FooterComponent);
-                return FooterComponent;
-            }());
+            FooterComponent = class FooterComponent {
+            };
+            FooterComponent = __decorate([
+                core_1.Component({
+                    selector: 'footer',
+                    templateUrl: 'app/footer.component.html',
+                    styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                        'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                }), 
+                __metadata('design:paramtypes', [])
+            ], FooterComponent);
             exports_1("FooterComponent", FooterComponent);
         }
     }

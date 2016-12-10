@@ -1,5 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteConfig , RouterOutlet} from 'angular2/router';
+import {Component, OnInit, Input} from 'angular2/core';
+import { ROUTER_DIRECTIVES, RouteConfig , RouterOutlet, Router} from 'angular2/router';
 import {UserSearchComponent} from './user-search.component'
 
 @Component({
@@ -12,6 +12,9 @@ import {UserSearchComponent} from './user-search.component'
 })
 export class UserHomeComponent implements OnInit {
 
+// constructor(private _router : Router) {
+@Input() username;
+// }
 ngOnInit()
 {
         if($("body").hasClass('modal-open')){
@@ -24,5 +27,10 @@ ngOnInit()
         //Class("modal-backdrop fade in").addClass("modal-backdrop fade");
 
 }
+
+// isLinkActive(route) {
+//     var instruction = this._router.generate(route);
+//     return this._router.isRouteActive(instruction);
+// }
     
 }

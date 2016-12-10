@@ -21,19 +21,23 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 router_1 = router_1_1;
             }],
         execute: function() {
-            UserBodyComponent = (function () {
-                function UserBodyComponent() {
-                }
-                UserBodyComponent = __decorate([
-                    core_1.Component({
-                        selector: 'user-body',
-                        template: "\n<h1>Welcome to the MarketHub</h1>   \n\n\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a [routerLink]=\"['Buy']\">Buy</a></li>\n            <li class=\"active\"><a [routerLink]=\"['Sell']\">Sell</a></li>\n        </ul>",
-                        directives: [router_1.ROUTER_DIRECTIVES]
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], UserBodyComponent);
-                return UserBodyComponent;
-            }());
+            UserBodyComponent = class UserBodyComponent {
+            };
+            UserBodyComponent = __decorate([
+                core_1.Component({
+                    selector: 'user-body',
+                    template: `
+<h1>Welcome to the MarketHub</h1>   
+
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a [routerLink]="['Buy']">Buy</a></li>
+            <li class="active"><a [routerLink]="['Sell']">Sell</a></li>
+        </ul>`,
+                    directives: [router_1.ROUTER_DIRECTIVES]
+                }), 
+                __metadata('design:paramtypes', [])
+            ], UserBodyComponent);
             exports_1("UserBodyComponent", UserBodyComponent);
         }
     }

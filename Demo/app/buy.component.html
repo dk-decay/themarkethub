@@ -1,23 +1,22 @@
 <user-search></user-search>
 
 <div class="content">
-	<div class="container-fluid">
-		<div class="row" style="margin:0 auto">
-			<div class="col-lg-2 col-lg-offset-1 col-md-6 col-sm-6" *ngFor="#product of products">
+	<div class="container-fluid" style="margin:80px auto">
+		<h2>Items up for Sale</h2>
+		<div class="row">
+			<div class="col-lg-3 col-lg-offset-1 col-md-6 col-sm-6" *ngFor="#product of products">
 				<div class="card card-stats">
 					<div class="card-header">
-						<img class="img-responsive"
-                        src = "{{product.imgUrl}}"
-                        alt="image1"
-                        style="height: 175px; width:175px;"/>
+						<img class="img-responsive" src="{{product.imgUrl}}" alt="image1" style="height: 175px; width:175px;" />
 					</div>
 					<div class="card-content">
 						<p class="category">{{product.title}}</p>
-						<h3 class="title">{{product.amount}}</h3>
+						<h3 class="title">$ {{product.amount}}</h3>
 					</div>
 					<div class="card-footer">
 						<div class="stats">
-							<button class="btn btn-primary btn-just-icon">Bid Now</button>
+							<button class="btn btn-primary btn-just-icon"
+							data-toggle="modal" data-target="#bidModal" (click)="onBidNow()">Bid Now</button>
 						</div>
 					</div>
 				</div>

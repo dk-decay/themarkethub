@@ -18,18 +18,34 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            UserHeaderComponent = (function () {
-                function UserHeaderComponent() {
-                }
-                UserHeaderComponent = __decorate([
-                    core_1.Component({
-                        selector: 'user-header',
-                        template: "\n        <nav class=\"navbar navbar-default navbar-fixed-top\">\n             <div class=\"container-fluid\">\n                 <div class=\"navbar-header\">\n                     <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                         <span class=\"icon-bar\"></span>\n                         <span class=\"icon-bar\"></span>\n                         <span class=\"icon-bar\"></span>\n                     </button>\n                 </div> \n                <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n                   <ul class=\"nav navbar-nav\">\n                   <li class=\"active\"><a href=\"#\"><span class=\"glyphicon glyphicon-home\"></span> Home</a></li>\n                   <li><a href=\"#\">About Us</a></li>\n                   <li><a href=\"#\">Contact</a></li>\n                </ul>\n             </div>\n        </div>\n    </nav>\n    "
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], UserHeaderComponent);
-                return UserHeaderComponent;
-            }());
+            UserHeaderComponent = class UserHeaderComponent {
+            };
+            UserHeaderComponent = __decorate([
+                core_1.Component({
+                    selector: 'user-header',
+                    template: `
+        <nav class="navbar navbar-default navbar-fixed-top">
+             <div class="container-fluid">
+                 <div class="navbar-header">
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                     </button>
+                 </div> 
+                <div class="collapse navbar-collapse" id="myNavbar">
+                   <ul class="nav navbar-nav">
+                   <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                   <li><a href="#">About Us</a></li>
+                   <li><a href="#">Contact</a></li>
+                </ul>
+             </div>
+        </div>
+    </nav>
+    `
+                }), 
+                __metadata('design:paramtypes', [])
+            ], UserHeaderComponent);
             exports_1("UserHeaderComponent", UserHeaderComponent);
         }
     }

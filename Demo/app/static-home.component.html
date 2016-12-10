@@ -142,7 +142,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<form>
+				<form [ngFormModel]="signUpForm" (ngSubmit)="onSignUp()">
 					<div class="col-lg-4">
 						<div class="content">
 							<div class="card">
@@ -154,8 +154,32 @@
 									<div class="row">
 										<div class="col-md-8">
 											<div class="form-group label-floating is-empty">
-												<label class="control-label">Email</label>
-												<input type="text" class="form-control">
+												
+											<label for="email"></label>
+											<input type="text"
+                                        	class="form-control"
+											placeholder="Email Id..."
+                                        	ngControl="email"
+                                       		#email="ngForm"
+                                       		id="email"
+                                       		[(ngModel)]="userObj.email">
+											<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-8">
+											<div class="form-group label-floating is-empty">
+
+												<label for="password"></label>
+												<input type="password"
+                                        		class="form-control"
+												placeholder="Password..."
+                                        		ngControl="password"
+                                       			#password="ngForm"
+                                       			id="password"
+                                        		[(ngModel)]="userObj.password">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -164,18 +188,15 @@
 									<div class="row">
 										<div class="col-md-8">
 											<div class="form-group label-floating is-empty">
-												<label class="control-label">Password</label>
-												<input type="password" class="form-control">
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
 
-									<div class="row">
-										<div class="col-md-8">
-											<div class="form-group label-floating is-empty">
-												<label class="control-label">Confirm Password</label>
-												<input type="password" class="form-control">
+												<label for="confirmPassword"></label>
+												<input type="password"
+                                        		class="form-control"
+												placeholder="Confirm Password..."
+                                        		ngControl="confirmPassword"
+                                       			#confirmPassword="ngForm"
+                                       			id="confirmPassword"
+                                        		[(ngModel)]="userObj.confirmPassword">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -196,8 +217,15 @@
 									<div class="row">
 										<div class="col-md-8">
 											<div class="form-group label-floating is-empty">
-												<label class="control-label">First Name</label>
-												<input type="text" class="form-control">
+
+												<label for="fullname"></label>
+												<input type="text"
+                                        		class="form-control"
+												placeholder="Name..."
+                                        		ngControl="fullname"
+                                       			#fullname="ngForm"
+                                       			id="fullname"
+                                        		[(ngModel)]="userObj.fullname">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -206,8 +234,15 @@
 									<div class="row">
 										<div class="col-md-8">
 											<div class="form-group label-floating is-empty">
-												<label class="control-label">Last Name</label>
-												<input type="text" class="form-control">
+
+												<label for="username"></label>
+												<input type="text"
+                                        		class="form-control"
+												placeholder="Username..."
+                                        		ngControl="username"
+                                       			#username="ngForm"
+                                       			id="username"
+                                        		[(ngModel)]="userObj.username">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -216,8 +251,15 @@
 									<div class="row">
 										<div class="col-md-8">
 											<div class="form-group label-floating is-empty">
-												<label class="control-label">Date Of Birth</label>
-												<input id="dp" type="text" class="form-control">
+
+												<label for="dateOfBirth"></label>
+												<input type="text"
+                                        		class="form-control"
+												placeholder="MM/DD/YYYY"
+                                        		ngControl="dateOfBirth"
+                                       			#dateOfBirth="ngForm"
+                                       			id="dateOfBirth"
+                                        		[(ngModel)]="userObj.dateOfBirth">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -238,9 +280,14 @@
 								<div class="row">
 									<div class="col-md-8 dropdown">
 										<div class="form-group label-floating">
-											<label class="control-label" for="sel1">Education</label>
-											<select class="form-control" id="sel1">
-															<option>Select One</option>
+											<label class="control-label" for="education">Education</label>
+											<select class="form-control" id="education"
+											placeholder="Education..."
+											 #education="ngForm"
+											 ngControl="education"
+											 [(ngModel)]="userObj.education">
+											 				
+														
 															<option>Bachelor</option>
 															<option>Gratuate</option>
 															<option>Doctorate</option>
@@ -252,9 +299,16 @@
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group label-floating is-empty">
-											<label class="control-label">Describe Yourself</label>
-											<input type="text" class="form-control">
-											<span class="material-input"></span>
+
+												<label for="selfDescription"></label>
+												<input type="text"
+                                        		class="form-control"
+												placeholder="Describe yourself..."
+                                        		ngControl="selfDescription"
+                                       			#selfDescription="ngForm"
+                                       			id="selfDescription"
+                                        		[(ngModel)]="userObj.selfDescription">
+												<span class="material-input"></span>
 										</div>
 									</div>
 								</div>
@@ -262,9 +316,16 @@
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group label-floating is-empty">
-											<label class="control-label">Hobbies</label>
-											<input type="text" class="form-control">
-											<span class="material-input"></span>
+
+											<label for="hobbies"></label>
+												<input type="hobies"
+                                        		class="form-control"
+												placeholder="Hobbies..."
+                                        		ngControl="hobbies"
+                                       			#hobbies="ngForm"
+                                       			id="hobbies"
+                                        		[(ngModel)]="userObj.hobbies">
+												<span class="material-input"></span>
 										</div>
 									</div>
 								</div>
@@ -275,7 +336,7 @@
 
 					
 					<div class="col-lg-12 text-center">
-						<button type="submit" class="btn btn-success" (click)="onSubmit()">Submit Information!</button>
+						<button type="submit" class="btn btn-success">Submit Information!</button>
 						<div class="clearfix"></div>
 					</div>
 				</form>
@@ -402,26 +463,46 @@
 					</div>
 
 
-					<form>
+					<form [ngFormModel]="signInForm" (ngSubmit)="onSignIn()">
 						<div class="content">
 							<div class="row">
 								<div class="col-lg-9 col-lg-offset-1">
 									<div class="input-group"> <span class="input-group-addon">
                                         <i class="material-icons">face</i>
                                     </span>
-										<input type="text" class="form-control" placeholder="User Name..."> </div>
-								</div>
-							</div>
+									
+										<label for="username"></label>
+										<input type="text"
+                                        class="form-control"
+										placeholder="Username..."
+                                        ngControl="username"
+                                        #username="ngForm"
+                                        id="username"
+                                        [(ngModel)]="userObj.username">
+												
+									</div>
+									</div>
+									</div>
+
 							<div class="row">
 								<div class="col-lg-9 col-lg-offset-1">
 									<div class="input-group"> <span class="input-group-addon">
                                             <i class="material-icons">lock_outline</i>
                                         </span>
-										<input type="password" placeholder="Password..." class="form-control" /> </div>
+										
+										<label for="password"></label>
+										<input type="text"
+                                        class="form-control"
+										placeholder="Password..."
+                                        ngControl="password"
+                                        #username="ngForm"
+                                        id="password"
+                                        [(ngModel)]="userObj.password">
 								</div>
 							</div>
+							</div>
 							<div class="row text-center">
-								<button class="btn btn-success" (click)="onSubmit()"> Login </button> <!--(click)="onSubmit()-->
+								<button class="btn btn-success" type="submit"> Login </button> <!--(click)="onSubmit()-->
 							</div>
 							<div class="col-lg-10 col-lg-offset-1 text-center" style="border-top: 2px solid #b80000;">
 								<p class="card-content" style="padding-bottom:0px;"> If you're not yet registered with us, sign up ! </p>

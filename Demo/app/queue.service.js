@@ -9,21 +9,20 @@ System.register(['rxjs/Subject'], function(exports_1, context_1) {
                 Subject_1 = Subject_1_1;
             }],
         execute: function() {
-            QueueService = (function () {
-                function QueueService() {
+            QueueService = class QueueService {
+                constructor() {
                     this.parentQueue = new Subject_1.Subject();
                     this.childQueue = new Subject_1.Subject();
                     this.parentQOb$ = this.parentQueue.asObservable();
                     this.childQOb$ = this.childQueue.asObservable();
                 }
-                QueueService.prototype.sendParent = function (str) {
+                sendParent(str) {
                     this.parentQueue.next(str);
-                };
-                QueueService.prototype.sendChild = function (str) {
+                }
+                sendChild(str) {
                     this.childQueue.next(str);
-                };
-                return QueueService;
-            }());
+                }
+            };
             exports_1("QueueService", QueueService);
         }
     }

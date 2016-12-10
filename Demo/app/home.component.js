@@ -35,8 +35,8 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
             function (_1) {}],
         execute: function() {
             //import {Ng2PageScrollModule} from 'ng2-page-scroll';
-            HomeComponent = (function () {
-                function HomeComponent(fb, userObj, router, _routeParams, _loginService) {
+            HomeComponent = class HomeComponent {
+                constructor(fb, userObj, router, _routeParams, _loginService) {
                     this.userObj = userObj;
                     this.router = router;
                     this._routeParams = _routeParams;
@@ -47,10 +47,10 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
                         password: ['', common_1.Validators.compose([common_1.Validators.required])]
                     });
                 }
-                HomeComponent.prototype.ngOnInit = function () {
+                ngOnInit() {
                     this.loggedIn = this.route;
-                };
-                HomeComponent.prototype.signIn = function () {
+                }
+                signIn() {
                     // this.userObj = {email : 'soham@gmail.com', password : 'ads'};
                     // console.log("user object:", this.userObj);
                     // this._loginService.loginuser(this.userObj)
@@ -62,18 +62,17 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './user'
                     // console.log(this.authenticatedUser);
                     console.log('Checking value');
                     this.router.navigate(['UserHome']);
-                };
-                HomeComponent = __decorate([
-                    core_1.Component({
-                        selector: 'home',
-                        templateUrl: 'app/home.component.html',
-                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css', 'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
-                        providers: [user_1.User, http_1.HTTP_PROVIDERS, login_service_1.LoginService],
-                    }), 
-                    __metadata('design:paramtypes', [common_1.FormBuilder, user_1.User, router_1.Router, router_1.RouteParams, login_service_1.LoginService])
-                ], HomeComponent);
-                return HomeComponent;
-            }());
+                }
+            };
+            HomeComponent = __decorate([
+                core_1.Component({
+                    selector: 'home',
+                    templateUrl: 'app/home.component.html',
+                    styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css', 'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                    providers: [user_1.User, http_1.HTTP_PROVIDERS, login_service_1.LoginService],
+                }), 
+                __metadata('design:paramtypes', [common_1.FormBuilder, user_1.User, router_1.Router, router_1.RouteParams, login_service_1.LoginService])
+            ], HomeComponent);
             exports_1("HomeComponent", HomeComponent);
         }
     }

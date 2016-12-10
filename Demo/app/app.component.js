@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-System.register(['angular2/core', 'angular2/router', './buy.component', './sell.component', './userhome.component', './dashboard.component', './rent.component', './user-search.component', './footer.component', './static-home.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './buy.component', './sell.component', './userhome.component', './dashboard.component', './rent.component', './user-search.component', './footer.component', './static-home.component', './users', './users.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './buy.component', './sell.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, buy_component_1, sell_component_1, userhome_component_1, dashboard_component_1, rent_component_1, user_search_component_1, footer_component_1, static_home_component_1;
+    var core_1, router_1, buy_component_1, sell_component_1, userhome_component_1, dashboard_component_1, rent_component_1, user_search_component_1, footer_component_1, static_home_component_1, users_1, users_service_1;
     var AppComponent;
     return {
         setters:[
@@ -44,40 +44,54 @@ System.register(['angular2/core', 'angular2/router', './buy.component', './sell.
             },
             function (static_home_component_1_1) {
                 static_home_component_1 = static_home_component_1_1;
+            },
+            function (users_1_1) {
+                users_1 = users_1_1;
+            },
+            function (users_service_1_1) {
+                users_service_1 = users_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent(router) {
+            AppComponent = class AppComponent {
+                constructor(router, 
+                    //  _routeParams: RouteParams,
+                    userObj, _userService) {
                     this.router = router;
+                    this.userObj = userObj;
+                    this._userService = _userService;
+                    this.bidNow = false;
                     this.loggedIn = false;
                 }
-                AppComponent.prototype.onStatus = function ($event) {
+                onStatus($event) {
                     console.log("catching event", $event);
                     this.loggedIn = true;
-                    this.router.navigate(['Dashboard']);
-                    //this.router.navigateByUrl('/marketplace/userhome/dashboard', true);
-                };
-                AppComponent = __decorate([
-                    router_1.RouteConfig([
-                        { path: "/userhome", name: 'UserHome', component: userhome_component_1.UserHomeComponent },
-                        { path: "/userhome/buy", name: 'Buy', component: buy_component_1.BuyComponent },
-                        { path: "/userhome/sell", name: 'Sell', component: sell_component_1.SellComponent },
-                        { path: "/userhome/dashboard", name: 'Dashboard', component: dashboard_component_1.DashboardComponent },
-                        { path: "/userhome/rent", name: 'Rent', component: rent_component_1.RentComponent },
-                        { path: "/marketplace", name: 'Marketplace', component: static_home_component_1.StaticHomeComponent }
-                    ]),
-                    core_1.Component({
-                        selector: 'my-app',
-                        templateUrl: 'app/app.component.html',
-                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
-                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, userhome_component_1.UserHomeComponent, user_search_component_1.UserSearchComponent, static_home_component_1.StaticHomeComponent, footer_component_1.FooterComponent],
-                        providers: [router_1.ROUTER_PROVIDERS]
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router])
-                ], AppComponent);
-                return AppComponent;
-            }());
+                    this.username = $event.newValue.username;
+                    this.router.navigate(['Dashboard', { username: JSON.stringify($event.newValue.username) }]);
+                }
+                onBidNowModal($event) {
+                    console.log('app component');
+                    this.bidNow = true;
+                }
+            };
+            AppComponent = __decorate([
+                router_1.RouteConfig([
+                    { path: "/userhome", name: 'UserHome', component: userhome_component_1.UserHomeComponent },
+                    { path: "/userhome/buy", name: 'Buy', component: buy_component_1.BuyComponent },
+                    { path: "/userhome/sell", name: 'Sell', component: sell_component_1.SellComponent },
+                    { path: "/userhome/dashboard", name: 'Dashboard', component: dashboard_component_1.DashboardComponent },
+                    { path: "/userhome/rent", name: 'Rent', component: rent_component_1.RentComponent },
+                    { path: "/marketplace", name: 'Marketplace', component: static_home_component_1.StaticHomeComponent }
+                ]),
+                core_1.Component({
+                    selector: 'my-app',
+                    templateUrl: 'app/app.component.html',
+                    styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                        'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                    directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, userhome_component_1.UserHomeComponent, user_search_component_1.UserSearchComponent, static_home_component_1.StaticHomeComponent, footer_component_1.FooterComponent, buy_component_1.BuyComponent],
+                    providers: [router_1.ROUTER_PROVIDERS, users_1.Users, users_service_1.UsersService]
+                }), 
+                __metadata('design:paramtypes', [router_1.Router, users_1.Users, users_service_1.UsersService])
+            ], AppComponent);
             exports_1("AppComponent", AppComponent);
         }
     }

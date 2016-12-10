@@ -21,21 +21,16 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 router_1 = router_1_1;
             }],
         execute: function() {
-            UserSearchComponent = (function () {
-                function UserSearchComponent() {
-                }
-                UserSearchComponent = __decorate([
-                    core_1.Component({
-                        selector: 'user-search',
-                        templateUrl: 'app/user-search.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES],
-                        styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
-                            'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], UserSearchComponent);
-                return UserSearchComponent;
-            }());
+            UserSearchComponent = class UserSearchComponent {
+            };
+            UserSearchComponent = __decorate([
+                core_1.Component({
+                    selector: 'user-search',
+                    templateUrl: 'app/user-search.component.html',
+                    directives: [router_1.ROUTER_DIRECTIVES],
+                }), 
+                __metadata('design:paramtypes', [])
+            ], UserSearchComponent);
             exports_1("UserSearchComponent", UserSearchComponent);
         }
     }

@@ -22,28 +22,27 @@ System.register(['angular2/http', 'angular2/core', 'rxjs/add/operator/map'], fun
             },
             function (_1) {}],
         execute: function() {
-            LoginService = (function () {
-                function LoginService(_http) {
+            LoginService = class LoginService {
+                constructor(_http) {
                     this._http = _http;
                 }
-                LoginService.prototype.getUser = function () {
+                getUser() {
                     return this._http.get("http://jsonplaceholder.typicode.com/posts")
-                        .map(function (res) { return res.json(); });
-                };
-                LoginService.prototype.loginuser = function (post) {
+                        .map(res => res.json());
+                }
+                loginuser(post) {
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
                     var options = new http_1.RequestOptions({ headers: headers });
                     var body = JSON.stringify(post);
                     console.log("post parsing", body);
                     return this._http.post("/login", body, options)
-                        .map(function (res) { return res.json(); });
-                };
-                LoginService = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
-                ], LoginService);
-                return LoginService;
-            }());
+                        .map(res => res.json());
+                }
+            };
+            LoginService = __decorate([
+                core_1.Injectable(), 
+                __metadata('design:paramtypes', [http_1.Http])
+            ], LoginService);
             exports_1("LoginService", LoginService);
         }
     }

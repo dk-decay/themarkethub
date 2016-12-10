@@ -1,4 +1,4 @@
-System.register(['angular2/core', './user-search.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './products', './products.service', 'angular2/common', 'angular2/router', './user-search.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,30 +10,85 @@ System.register(['angular2/core', './user-search.component'], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_search_component_1;
+    var core_1, products_1, products_service_1, common_1, router_1, user_search_component_1;
     var SellComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (products_1_1) {
+                products_1 = products_1_1;
+            },
+            function (products_service_1_1) {
+                products_service_1 = products_service_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (user_search_component_1_1) {
                 user_search_component_1 = user_search_component_1_1;
             }],
         execute: function() {
-            SellComponent = (function () {
-                function SellComponent() {
+            SellComponent = class SellComponent {
+                constructor(fb, prodObj, _productService, router, _routeParams) {
+                    this.prodObj = prodObj;
+                    this._productService = _productService;
+                    this.router = router;
+                    this._routeParams = _routeParams;
+                    this.sellForm = fb.group({
+                        productTitle: ['', common_1.Validators.required],
+                        category: ['', common_1.Validators.required],
+                        desc: ['', common_1.Validators.required],
+                        amount: ['', common_1.Validators.required],
+                        postDate: ['', common_1.Validators.required]
+                    });
                 }
-                SellComponent = __decorate([
-                    core_1.Component({
-                        selector: 'sell',
-                        template: "\n     <user-search></user-search>\n        <h5> Sell things at a higher value </h5>\n    ",
-                        directives: [user_search_component_1.UserSearchComponent]
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], SellComponent);
-                return SellComponent;
-            }());
+                routerCanDeactivate() {
+                    if (this.sellForm.dirty) {
+                        return confirm("Are you sure ?");
+                    }
+                    return true;
+                }
+                ngOnInit() {
+                    this.username = this._routeParams.get('username');
+                    console.log('Init : Sell : ', this.username);
+                }
+                fileChangeEvent(fileInput) {
+                    console.log('invoked file change event');
+                    this.filesToUpload = fileInput.target.files;
+                }
+                uploadProduct() {
+                    console.log('filesToUpload :', this.filesToUpload.length);
+                    this._productService
+                        .saveProductDetails(this.prodObj, this.username, "/item/upload", this.filesToUpload)
+                        .then(response => {
+                        if (response) {
+                            console.log('File uploaded successfully', response);
+                            // navigate user
+                            this.router.navigate(['Dashboard', { username: this.username }]);
+                        }
+                        else {
+                            // show error
+                            console.log('error uploading data');
+                        }
+                    });
+                }
+            };
+            SellComponent = __decorate([
+                core_1.Component({
+                    selector: 'sell',
+                    templateUrl: 'app/sell.component.html',
+                    styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                        'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                    providers: [products_1.Products, products_service_1.ProductsService],
+                    directives: [user_search_component_1.UserSearchComponent]
+                }), 
+                __metadata('design:paramtypes', [common_1.FormBuilder, products_1.Products, products_service_1.ProductsService, router_1.Router, router_1.RouteParams])
+            ], SellComponent);
             exports_1("SellComponent", SellComponent);
         }
     }

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './products', './products.service', './user-search.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './products', './products.service', './user-search.component', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './products', './products.service', './user-se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, products_1, products_service_1, user_search_component_1;
+    var core_1, products_1, products_service_1, user_search_component_1, router_1;
     var BuyComponent;
     return {
         setters:[
@@ -25,29 +25,51 @@ System.register(['angular2/core', './products', './products.service', './user-se
             },
             function (user_search_component_1_1) {
                 user_search_component_1 = user_search_component_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
-            BuyComponent = (function () {
-                function BuyComponent(_productService) {
+            BuyComponent = class BuyComponent {
+                constructor(_productService, _routeParams) {
                     this._productService = _productService;
+                    this._routeParams = _routeParams;
+                    this.change = new core_1.EventEmitter();
                 }
-                BuyComponent.prototype.ngOnInit = function () {
-                    this.products = this._productService.getProducts();
-                    //  .subscribe(response => {
-                    //      this._productObj = response
-                    //    });
-                };
-                BuyComponent = __decorate([
-                    core_1.Component({
-                        selector: 'buy',
-                        templateUrl: 'app/buy.component.html',
-                        providers: [products_1.Products, products_service_1.ProductsService],
-                        directives: [user_search_component_1.UserSearchComponent]
-                    }), 
-                    __metadata('design:paramtypes', [products_service_1.ProductsService])
-                ], BuyComponent);
-                return BuyComponent;
-            }());
+                ngOnInit() {
+                    this.username = this._routeParams.get("username");
+                    console.log('Init : Buy : ', this.username);
+                    this._productService.getProducts()
+                        .subscribe(response => {
+                        console.log('Received all products', response);
+                        this.products = response;
+                    });
+                }
+                onBidNow() {
+                    console.log("catching event from bid now");
+                    this.bidNow = true;
+                    this.change.emit({ newValue: this.bidNow });
+                }
+            };
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', Object)
+            ], BuyComponent.prototype, "bidNow", void 0);
+            __decorate([
+                core_1.Output(), 
+                __metadata('design:type', Object)
+            ], BuyComponent.prototype, "change", void 0);
+            BuyComponent = __decorate([
+                core_1.Component({
+                    selector: 'buy',
+                    templateUrl: 'app/buy.component.html',
+                    styleUrls: ['app/home/css/bootstrap.min.css', 'app/home/css/bootstrap.css',
+                        'app/home/css/additional.css', 'app/home/css/material-dashboard.css'],
+                    providers: [products_1.Products, products_service_1.ProductsService],
+                    directives: [user_search_component_1.UserSearchComponent]
+                }), 
+                __metadata('design:paramtypes', [products_service_1.ProductsService, router_1.RouteParams])
+            ], BuyComponent);
             exports_1("BuyComponent", BuyComponent);
         }
     }

@@ -22,52 +22,46 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
             },
             function (_1) {}],
         execute: function() {
-            ProductsService = (function () {
-                // private _url = "http://jsonplaceholder.typicode.com/posts";
-                function ProductsService(_http) {
+            ProductsService = class ProductsService {
+                constructor(_http) {
                     this._http = _http;
                 }
-                ProductsService.prototype.getProducts = function () {
-                    //   return this._http.get(this.getUrl()).map(response => response.json());
-                    return [
-                        {
-                            imgUrl: '/uploads/img1.jpg',
-                            title: 'title1',
-                            desc: 'title1 description',
-                            amount: 20
-                        },
-                        {
-                            imgUrl: '/uploads/img1.jpg',
-                            title: 'title1',
-                            desc: 'title1 description',
-                            amount: 200
-                        },
-                        {
-                            imgUrl: '/uploads/img1.jpg',
-                            title: 'title1',
-                            desc: 'title1 description',
-                            amount: 200
-                        },
-                        {
-                            imgUrl: '/uploads/img1.jpg',
-                            title: 'title1',
-                            desc: 'title1 description',
-                            amount: 200
-                        },
-                        {
-                            imgUrl: '/uploads/img1.jpg',
-                            title: 'title1',
-                            desc: 'title1 description',
-                            amount: 200
+                saveProductDetails(prodObj, username, url, files) {
+                    console.log('Making request');
+                    return new Promise((resolve, reject) => {
+                        var formData = new FormData();
+                        formData.append("category", prodObj.category);
+                        formData.append("amount", prodObj.amount);
+                        formData.append("desc", prodObj.desc);
+                        formData.append("title", prodObj.title);
+                        formData.append("username", username);
+                        var xhr = new XMLHttpRequest();
+                        for (var i = 0; i < files.length; i++) {
+                            formData.append("uploads", files[i], files[i].name);
                         }
-                    ];
-                };
-                ProductsService = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
-                ], ProductsService);
-                return ProductsService;
-            }());
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4) {
+                                if (xhr.status == 200) {
+                                    resolve(JSON.parse(xhr.response));
+                                }
+                                else {
+                                    reject(xhr.response);
+                                }
+                            }
+                        };
+                        xhr.open("POST", url, true);
+                        xhr.send(formData);
+                    });
+                }
+                getProducts() {
+                    return this._http.get('/findAllItemsForSale')
+                        .map(response => response.json());
+                }
+            };
+            ProductsService = __decorate([
+                core_1.Injectable(), 
+                __metadata('design:paramtypes', [http_1.Http])
+            ], ProductsService);
             exports_1("ProductsService", ProductsService);
         }
     }
